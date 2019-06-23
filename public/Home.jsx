@@ -9,7 +9,7 @@ export default class Home extends Component {
 
     render() {
         return <div>
-            Welcome to world of react
+           Instructor System
         </div>;
     }
 }

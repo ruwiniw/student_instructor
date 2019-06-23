@@ -3,8 +3,10 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
-import About from './About';
-import Home from './Home';
+import Instructor from "./Instructor";
+import AdminContainer from "./AdminContainer";
+import StudentContainer from "./StudentContainer";
+import Container from "./Container";
 
 export default class AppContainer extends Component {
     constructor(props) {
@@ -13,22 +15,37 @@ export default class AppContainer extends Component {
 
     render() {
         return <div>
-            <h2>React JS Sample</h2>
+            <br/>
+            <h2><center>Student and Instructor Management System</center></h2>
             <Router>
                 <div>
+                    <br/>
+
                     <div className="row">
-                        <div className="col-sm">
-                            <Link to="/">Home</Link>
+                        <div className="col-sm-1">
+                            <Link to="/">Instructor</Link>
                         </div>
-                        <div className="col-sm">
-                            <Link to="/about">About</Link>
+                        <div className="col-sm-1">
+                            <Link to="/admin">Admin</Link>
+                        </div>
+                        <div className="col-sm-1">
+                            <Link to="/student">Student</Link>
+                        </div>
+                        <div className="col-sm-1">
+                            <Link to="/admin2">Admin2</Link>
                         </div>
                     </div>
                     <Route exact path="/" render={props => {
-                        return <Home/>
+                        return <Instructor/>
                     }}/>
-                    <Route path="/about" render={props => {
-                        return <About/>
+                    <Route path="/admin" render={props => {
+                        return <AdminContainer/>
+                    }}/>
+                    <Route path="/student" render={props => {
+                        return <StudentContainer/>
+                    }}/>
+                    <Route path="/admin2" render={props => {
+                        return <Container/>
                     }}/>
                 </div>
             </Router>
